@@ -43,6 +43,8 @@ namespace todo_api_net
 
             app.UseRouting();
 
+            app.UseCors();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
