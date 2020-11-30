@@ -29,6 +29,10 @@ namespace todo_api_net
         {
             services.AddControllers();
             services.AddDbContext<DataContext>();
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder => builder.WithOrigins("*").WithMethods("*").WithHeaders("*"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
