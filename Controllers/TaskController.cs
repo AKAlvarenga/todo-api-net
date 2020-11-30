@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using todo_api_net.Models;
@@ -18,6 +19,7 @@ namespace todo_api_net.Controllers
     }
 
     [HttpGet]
+    [EnableCors]
     public IEnumerable<Task> GetAll()
     {
       var tasks = Db.Task.ToList();
@@ -25,6 +27,7 @@ namespace todo_api_net.Controllers
     }
 
     [HttpPost]
+    [EnableCors]
     public string Add([FromBody] TaskRequest newTask)
     {
       var task = new Task {Description = newTask.Description};
